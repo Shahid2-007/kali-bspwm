@@ -1,0 +1,133 @@
+# ███████╗██╗  ██╗██╗  ██╗██╗  ██╗██████╗ 
+# ██╔════╝╚██╗██╔╝██║  ██║██║ ██╔╝██╔══██╗
+# ███████╗ ╚███╔╝ ███████║█████╔╝ ██║  ██║
+# ╚════██║ ██╔██╗ ██╔══██║██╔═██╗ ██║  ██║
+# ███████║██╔╝ ██╗██║  ██║██║  ██╗██████╔╝
+# ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ 
+# SXHKDRC | Hacker environment                                       
+
+# -----------------------
+# wm independent hotkeys
+# -----------------------
+
+# Terminal emulator.
+
+super + t
+	    kitty
+
+super + f
+      firefox --new-window
+
+super + e
+      kitty yazi
+
+super + shift + e
+      kitty sudo -E yazi /
+
+super + r
+      kitty ncdu /
+
+super + a
+      firefox --new-window "https://chatgpt.com"
+
+super + shift + a
+      firefox --new-tab "https://chatgpt.com"
+
+super + z
+      firefox --new-window "https://grok.com"
+
+super + shift + z
+      firefox --new-tab "https://grok.com"
+
+super + d
+      firefox --new-window "https://youtube.com"
+
+super + shift + d
+      firefox --new-tab "https://youtube.com"
+
+alt + space
+	    ~/.config/rofi/launcher.sh
+
+alt + v
+      rofi -modi "clipboard:greenclip print" -show clipboard -theme /home/eren/.config/rofi/greenclip.rasi
+
+super + {shift + t,s}
+	bspc node -t {tiled,floating}
+
+super + Escape
+	pkill -x sxhkd; sxhkd &
+
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+super + x
+  bspc node -c
+
+super + c
+	bspc node -k
+
+alt + Return
+	bspc desktop -l next
+
+super + Tab
+	bspc node -f next.local.!hidden.window
+
+super + {1-9,0}
+    bspc desktop -f ^{1-9,10}
+
+super + shift + {1-9,0}
+    bspc node -d ^{1-9,10} --follow
+
+super + alt + {1-9,0}
+    bspc node -d ^{1-9,10}
+
+# expand a window by moving one of its side outward.
+
+super + alt + {Left,Down,Up,Right}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward.
+
+super + alt + shift + {Left,Down,Up,Right}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window.
+
+# super + {Left,Down,Up,Right}
+# 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Screenshot flameshot.
+
+shift + Print
+	flameshot gui
+
+# Screenshot flameshot full.
+
+Print
+	flameshot full
+
+# betterlockscreen.
+
+super + l
+	systemctl suspend && betterlockscreen -l dim
+
+F1
+    /home/eren/.local/bin/volume.sh mute
+F2
+    /home/eren/.local/bin/volume.sh -5
+F3
+    /home/eren/.local/bin/volume.sh +5
+
+# Brightness settings
+
+F11
+    bri.sh 5%-
+
+F12
+    bri.sh +5%
+
+super + shift + Right
+      /home/eren/.local/bin/setwallpaper.sh next
+
+super + shift + Left
+      /home/eren/.local/bin/setwallpaper.sh prev
