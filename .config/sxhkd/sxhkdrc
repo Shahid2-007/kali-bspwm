@@ -69,6 +69,9 @@ super + c
 alt + Return
 	bspc desktop -l next
 
+ctrl + Return
+  fullscreen.sh
+
 super + Tab
 	bspc node -f next.local.!hidden.window
 
