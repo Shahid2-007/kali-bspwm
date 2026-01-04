@@ -1,0 +1,43 @@
+goal in mind is to write a script like it should be in a folder where needed files are there to be copied
+
+1. install every package needed (includes fonts) 
+2. enable services
+3. copy configs
+4. reboot
+
+1. needed packages
+audio - pipewire pipewire-pulse pipewire-alsa alsa-utils wireplumber libspa-0.2-bluetooth
+systemctl --user enable --now pipewire-pulse pipewire wireplumber
+
+bluetooth(just for audio not file transfer)
+bluez bluez-tools blueman
+sudo systemctl enable bluetooth --now
+
+wifi - network-manager
+sudo systemctl enable NetworkManager
+
+xorg - dbus-x11 xserver-xorg x11-xserver-utils xserver-xorg-video-intel xserver-xorg-input-libinput
+
+install lightdm with recommended packages
+lightdm lightdm-greeter
+
+if plymouth install error
+open the /etc/initramfs-tools/plymouth and search for ln -s and replace it with ln -sf
+plymouth plymouth-themes kali-themes
+sudo plymouth-set-default-theme kali
+
+install mate-polkit and the rest is in bspwmrc
+
+curl -sS https://starship.rs/install.sh | sh
+
+sudo fc-cache -fv
+update-icon-caches
+
+echo "LC_ALL=en_US.UTF-8" | sudo tee -a /etc/default/locale
+echo "LANG=en_US.UTF-8" | sudo tee /etc/default/locale
+sv /etc/locale.gen && locale-gen
+
+brightnessctl dunst libnotify-bin xclip pamixer feh picom neovim ncdu duf lsd eza bspwm sxhkd kitty flameshot fish
+rofi polybar pcman firefox-esr build-essential autoconf automake pkg-config fakeroot base-files lxappearance openvpn
+base-passwd bsdutils coreutils dpkg grep sed tar gzip util-linux procps mount systemd betterlockscreen exfatprogs exfat-fuse
+git net-tools xdotool ffmpeg 7zip jq poppler-utils fd-find ripgrep fzf zoxide imagemagick
