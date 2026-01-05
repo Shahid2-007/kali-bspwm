@@ -46,7 +46,7 @@ super + shift + d
       firefox --new-tab "https://youtube.com"
 
 alt + space
-	    ~/.config/rofi/launcher.sh
+	    rofi -no-config -show drun -modi drun -theme ~/.config/rofi/launcher.rasi
 
 alt + v
       rofi -modi "clipboard:greenclip print" -show clipboard -theme /home/eren/.config/rofi/greenclip.rasi
