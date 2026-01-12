@@ -1,0 +1,5 @@
+[plugin]
+deps = []
+
+[flavor]
+deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "8458d25" }, { use = "yazi-rs/flavors:catppuccin-latte", rev = "8458d25" }, { use = "yazi-rs/flavors:catppuccin-frappe", rev = "8458d25" }, { use = "yazi-rs/flavors:catppuccin-macchiato", rev = "8458d25" }, { use = "tkapias/moonfly", rev = "395c686" }, { use = "tkapias/nightfly", rev = "599b8ad" }, { use = "dangooddd/kanagawa", rev = "b32f205" }, { use = "marcosvnmelo/kanagawa-dragon", rev = "2ddff30" }, { use = "bennyyip/gruvbox-dark", rev = "b4cc9f2" }, { use = "PinThePenguine/sunset", rev = "181acd4" }, { use = "kmlupreti/ayu-dark", rev = "441a38d" }, { use = "Chromium-3-Oxide/everforest-medium", rev = "65bc09b" }, { use = "sanjinso/monokai-vibrant", rev = "8b68223" }]

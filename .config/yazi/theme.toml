@@ -1,0 +1,45 @@
+# [flavor]
+# dark = "catppuccin-mocha"
+# light = "catppuccin-mocha"
+[flavor]
+dark = "catppuccin-latte"
+light = "catppuccin-latte"
+# [flavor]
+# dark = "catppuccin-frappe"
+# light = "catppuccin-frappe"
+# [flavor]
+# dark = "catppuccin-macchiato"
+# light = "catppuccin-macchiato"
+# [flavor]
+# dark = "moonfly"
+# light = "moonfly"
+# [flavor]
+# dark = "nightfly"
+# light = "nightfly"
+# [flavor]
+# dark = "onedark"
+# light = "onedark"
+# [flavor]
+# dark = "tokyo-night"
+# light = "tokyo-night"
+# [flavor]
+# dark = "kanagawa"
+# light = "kanagawa"
+# [flavor]
+# dark = "kanagawa-dragon"
+# light = "kanagawa-dragon"
+# [flavor]
+# dark = "gruvbox-dark"
+# light = "gruvbox-dark"
+# [flavor]
+# dark = "sunset"
+# light = "sunset"
+# [flavor]
+# dark = "ayu-dark"
+# light = "ayu-dark"
+# [flavor]
+# dark = "everforest-medium"
+# light = "everforest-medium"
+# [flavor]
+# dark = "monokai-vibrant"
+# light = "monokai-vibrant"

@@ -54,4 +54,7 @@ sudo nmcli networking on
 # edit the /etc/default/grub and run the
 update-grub
 
+# to set lock screen wallpaper
+betterlockscreen -u /home/eren/.wallpapers/evening-sky.png
+
 # curl -sS https://starship.rs/install.sh | sh
