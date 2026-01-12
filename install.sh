@@ -11,7 +11,11 @@ sudo apt install -y pipewire pipewire-pulse pipewire-alsa alsa-utils wireplumber
   neovim ncdu duf lsd eza bspwm sxhkd kitty fish base-passwd bsdutils coreutils dpkg grep sed tar gzip util-linux \
   procps mount betterlockscreen exfatprogs exfat-fuse git net-tools xdotool ffmpeg 7zip mate-polkit brightnessctl \
   poppler-utils fd-find fzf zoxide imagemagick rofi polybar pcmanfm firefox-esr build-essential autoconf automake \
-  pkg-config systemd ripgrep fakeroot base-files dbus-x11 flameshot lxappearance openvpn pkexec arch-install-scripts
+  pkg-config systemd ripgrep fakeroot base-files dbus-x11 flameshot lxappearance openvpn pkexec arch-install-scripts \
+  tldr obs-studio gvfs-backends gvfs-daemons gvfs-fuse fdupes
+
+echo "cursor-theme-name=Bibata-Modern-Ice
+cursor-theme-size=24" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf
 
 systemctl --user enable --now pipewire
 systemctl --user enable --now pipewire-pulse
@@ -26,17 +30,28 @@ sudo nano /etc/locale.gen && sudo locale-gen
 sudo mkdir -p /usr/share/fonts/truetype/nerd-fonts/ /usr/share/icons /usr/local/bin/ $home/.wallpapers/ \
   $config/kitty $config/nvim $config/yazi $config/bspwm $config/fish $config/picom $config/polybar \
   $config/rofi $config/sxhkd $home/.local/share/applications
-sudo cp $dir/usr/share/fonts/truetype/nerd-fonts/* /usr/share/fonts/truetype/nerd-fonts/
-sudo cp -r $dir/usr/share/icons/* /usr/share/icons/
-sudo cp $dir/usr/local/bin/* /usr/local/bin/
-sudo cp $dir/.wallpapers/* $home/.wallpapers/
-sudo cp $dir/.local/bin/* $home/.local/bin/
-sudo cp $dir/.local/share/applications/* $home/.local/share/applications/
-sudo cp -r $dir/.config/* $config/
-sudo cp $dir/.Xresources $home/
+sudo rsync -av $dir/usr/share/fonts/truetype/nerd-fonts/* /usr/share/fonts/truetype/nerd-fonts/
+sudo rsync -av $dir/usr/share/icons/* /usr/share/icons/
+sudo rsync -av $dir/usr/local/bin/* /usr/local/bin/
+sudo rsync -av $dir/.wallpapers/* $home/.wallpapers/
+sudo rsync -av $dir/.local/bin/* $home/.local/bin/
+sudo rsync -av $dir/.local/share/applications/* $home/.local/share/applications/
+sudo rsync -av $dir/.config/* $config/
+sudo rsync -av $dir/.Xresources $home/
 
 sudo fc-cache -fv
 fc-cache -fv
 sudo update-icon-caches /usr/share/icons
+
+# to solve network issue as the wlan0 is owned by wpa_supplicant by default not NetworkManager
+sudo systemctl disable wpa_supplicant
+sudo rsync -av ./interfaces /etc/network/interfaces
+sudo rsync -av ./10-managed.conf /etc/NetworkManager/conf.d/
+sudo systemctl restart NetworkManager
+sudo nmcli networking off
+sudo nmcli networking on
+
+# edit the /etc/default/grub and run the
+update-grub
 
 # curl -sS https://starship.rs/install.sh | sh
